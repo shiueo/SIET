@@ -32,6 +32,14 @@ class SIET_MainWindow(QMainWindow):
             "© 2023-present <font color='#FF0A54'><u>shiüo</u></font>"
         )
         self.FOOTER_TEXT.setFont(QFont(self.Pretendard_Medium, 12))
+        self.FOOTER_YOUTUBE = QPushButton()
+        self.FOOTER_YOUTUBE.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/youtube.png")))
+        self.FOOTER_GITHUB = QPushButton()
+        self.FOOTER_GITHUB.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/github.png")))
+        self.FOOTER_TWITTER = QPushButton()
+        self.FOOTER_TWITTER.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/twitter.png")))
+        self.FOOTER_SPOTIFY = QPushButton()
+        self.FOOTER_SPOTIFY.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/spotify.png")))
 
         self.initUI()
 
@@ -43,6 +51,10 @@ class SIET_MainWindow(QMainWindow):
 
         self.FOOTER_BOX.addStretch()
         self.FOOTER_BOX.addWidget(self.FOOTER_TEXT)
+        self.FOOTER_BOX.addWidget(self.FOOTER_GITHUB)
+        self.FOOTER_BOX.addWidget(self.FOOTER_YOUTUBE)
+        self.FOOTER_BOX.addWidget(self.FOOTER_SPOTIFY)
+        self.FOOTER_BOX.addWidget(self.FOOTER_TWITTER)
         self.FOOTER_BOX.addStretch()
 
         self.GRID.addLayout(self.FOOTER_BOX, 0, 0, 1, 1)

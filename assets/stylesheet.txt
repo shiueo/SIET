@@ -1,4 +1,4 @@
-QWidget {border: 0px solid transparent; background-color: #0A0A0A;}
+QWidget {border: 0px solid transparent; background-color: #101010;}
 QLabel {background: transparent;color: #FFFFFF;}
 QMenuBar {background: #FFFFFF;}
 QMenuBar::item {background: transparent;}
