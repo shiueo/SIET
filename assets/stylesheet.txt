@@ -1,0 +1,13 @@
+QWidget {border: 0px solid transparent; background-color: #0A0A0A;}
+QLabel {background: transparent;color: #FFFFFF;}
+QMenuBar {background: #FFFFFF;}
+QMenuBar::item {background: transparent;}
+QStatusBar {background: transparent; color: #FFFFFF;}
+QPlainTextEdit {border: none; background-color: #1A1A1A; border-radius: 9px; color: #FFFFFF;}
+QLineEdit {border: none; background: #1A1A1A; border-radius: 9px; color: #FFFFFF;}
+QComboBox {border: none; background-color: #1A1A1A; border-radius: 4px; color: #FFFFFF;}
+QComboBox QListView {border: none; background-color: #1A1A1A; color: #FFFFFF;}
+QPushButton {border: none; background-color: #FF0A54; color: #FFFFFF; border-radius: 4px;}
+QPushButton::pressed {border: none; background-color: #1A1A1A; color: #FFFFFF;}
+QPushButton:disabled {border: none; background-color: #1A1A1A; color: #FFFFFF;}
+QScrollArea {background-color: #1A1A1A; border-radius: 4px;}
