@@ -25,6 +25,7 @@ DEALINGS IN THE SOFTWARE.
 import os
 import subprocess
 
+
 def code_format(path):
     try:
         # Create a list to store target files for code formatting
