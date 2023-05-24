@@ -1,3 +1,5 @@
+import webbrowser
+
 from PySide6.QtGui import QIcon, QFont
 from PySide6.QtWidgets import (
     QMainWindow,
@@ -10,6 +12,14 @@ from PySide6.QtWidgets import (
 
 from src.ui.ui_utils import fonts
 from utils import global_path
+
+
+def FOOTER_BTN_GITHUB():
+    webbrowser.open("https://github.com/shiueo/SIET/")
+
+
+def FOOTER_BTN_YOUTUBE():
+    webbrowser.open("https://www.youtube.com/@shiueo")
 
 
 class SIET_MainWindow(QMainWindow):
@@ -33,13 +43,27 @@ class SIET_MainWindow(QMainWindow):
         )
         self.FOOTER_TEXT.setFont(QFont(self.Pretendard_Medium, 12))
         self.FOOTER_YOUTUBE = QPushButton()
-        self.FOOTER_YOUTUBE.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/youtube.png")))
+        self.FOOTER_YOUTUBE.setIcon(
+            QIcon(global_path.get_proj_abs_path("assets/icons/youtube.png"))
+        )
+        self.FOOTER_YOUTUBE.clicked.connect(lambda: FOOTER_BTN_YOUTUBE())
         self.FOOTER_GITHUB = QPushButton()
-        self.FOOTER_GITHUB.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/github.png")))
+        self.FOOTER_GITHUB.setIcon(
+            QIcon(global_path.get_proj_abs_path("assets/icons/github.png"))
+        )
+        self.FOOTER_GITHUB.clicked.connect(lambda: FOOTER_BTN_GITHUB())
         self.FOOTER_TWITTER = QPushButton()
-        self.FOOTER_TWITTER.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/twitter.png")))
+        self.FOOTER_TWITTER.setIcon(
+            QIcon(global_path.get_proj_abs_path("assets/icons/twitter.png"))
+        )
         self.FOOTER_SPOTIFY = QPushButton()
-        self.FOOTER_SPOTIFY.setIcon(QIcon(global_path.get_proj_abs_path("assets/icons/spotify.png")))
+        self.FOOTER_SPOTIFY.setIcon(
+            QIcon(global_path.get_proj_abs_path("assets/icons/spotify.png"))
+        )
+        self.FOOTER_DISCORD = QPushButton()
+        self.FOOTER_DISCORD.setIcon(
+            QIcon(global_path.get_proj_abs_path("assets/icons/discord.png"))
+        )
 
         self.initUI()
 
@@ -53,6 +77,7 @@ class SIET_MainWindow(QMainWindow):
         self.FOOTER_BOX.addWidget(self.FOOTER_TEXT)
         self.FOOTER_BOX.addWidget(self.FOOTER_GITHUB)
         self.FOOTER_BOX.addWidget(self.FOOTER_YOUTUBE)
+        self.FOOTER_BOX.addWidget(self.FOOTER_DISCORD)
         self.FOOTER_BOX.addWidget(self.FOOTER_SPOTIFY)
         self.FOOTER_BOX.addWidget(self.FOOTER_TWITTER)
         self.FOOTER_BOX.addStretch()
