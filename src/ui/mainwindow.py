@@ -1,18 +1,22 @@
-from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon, QFont
 from PySide6.QtWidgets import (
     QMainWindow,
     QWidget,
     QGridLayout,
     QPushButton,
-    QMenu,
+    QMenu, QHBoxLayout, QLabel,
 )
 
+from src.ui.ui_utils import fonts
 from utils import global_path
 
 
 class SIET_MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.Pretendard_SemiBold = QFont()
+        fonts.load_font(w=self)
         # Set the window title
         self.setWindowTitle("SIET")
         # Set the initial window size
@@ -25,6 +29,12 @@ class SIET_MainWindow(QMainWindow):
         # Set the central widget of the main window
         self.setCentralWidget(widget)
 
+        self.GRID = QGridLayout(widget)
+
+        self.FOOTER_BOX = QHBoxLayout()
+        self.FOOTER_TEXT = QLabel("© 2023-present <font color='#FF0A54'><u>shiüo</u></font>")
+        self.FOOTER_TEXT.setFont(QFont(self.Pretendard_SemiBold, 12))
+
         # Initialize the user interface
         self.initUI()
 
@@ -35,3 +45,10 @@ class SIET_MainWindow(QMainWindow):
         ) as f:
             # Set the stylesheet for the main window using the read contents
             self.setStyleSheet(f.read())
+
+        self.FOOTER_BOX.addStretch()
+        self.FOOTER_BOX.addWidget(self.FOOTER_TEXT)
+        self.FOOTER_BOX.addStretch()
+
+        self.GRID.addLayout(self.FOOTER_BOX, 0, 0, 1, 1)
+
