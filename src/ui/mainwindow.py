@@ -1,11 +1,11 @@
-from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon, QFont
 from PySide6.QtWidgets import (
     QMainWindow,
     QWidget,
     QGridLayout,
     QPushButton,
-    QMenu, QHBoxLayout, QLabel,
+    QHBoxLayout,
+    QLabel,
 )
 
 from src.ui.ui_utils import fonts
@@ -28,14 +28,16 @@ class SIET_MainWindow(QMainWindow):
         self.GRID = QGridLayout(widget)
 
         self.FOOTER_BOX = QHBoxLayout()
-        self.FOOTER_TEXT = QLabel("© 2023-present <font color='#FF0A54'><u>shiüo</u></font>")
+        self.FOOTER_TEXT = QLabel(
+            "© 2023-present <font color='#FF0A54'><u>shiüo</u></font>"
+        )
         self.FOOTER_TEXT.setFont(QFont(self.Pretendard_Medium, 12))
 
         self.initUI()
 
     def initUI(self):
         with open(
-                file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
+            file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
         ) as f:
             self.setStyleSheet(f.read())
 
