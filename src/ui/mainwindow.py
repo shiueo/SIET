@@ -100,8 +100,8 @@ class SIET_MainWindow(QMainWindow):
 
     def dropEvent(self, event: QDropEvent) -> None:
         tmp =[i.toLocalFile() for i in event.mimeData().urls()][0]
-        if pathlib.Path(tmp).suffix in [".png"]:
+        if pathlib.Path(tmp).suffix in [".png", ".jpg"]:
             self.target_image_path = tmp
-            self.statusBar().showMessage(self.target_image_path)
+            self.statusBar().showMessage(f"{pathlib.Path(self.target_image_path).name} loaded.")
         else:
-            self.statusBar().showMessage("Error")
+            self.statusBar().showMessage(f"Require image files in formats like PNG, JPEG, JPG, ... . :: {pathlib.Path(tmp).name}")
