@@ -1,6 +1,7 @@
+import pathlib
 import webbrowser
 
-from PySide6.QtGui import QIcon, QFont
+from PySide6.QtGui import QIcon, QFont, QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import (
     QMainWindow,
     QWidget,
@@ -25,12 +26,19 @@ def FOOTER_BTN_YOUTUBE():
 class SIET_MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.Pretendard_Medium = QFont()
         self.Pretendard_SemiBold = QFont()
         fonts.load_font(w=self)
 
         self.setWindowTitle("SIET")
         self.resize(1280, 720)
+        self.setAcceptDrops(True)
         self.setWindowIcon(QIcon(global_path.get_proj_abs_path("assets/icon.png")))
+        self.statusBar().setFont(QFont(self.Pretendard_Medium, 10))
+        self.statusBar().showMessage('Ready')
+
+        # VARIABLES
+        self.target_image_path = None
 
         widget = QWidget()
         self.setCentralWidget(widget)
@@ -69,7 +77,7 @@ class SIET_MainWindow(QMainWindow):
 
     def initUI(self):
         with open(
-            file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
+                file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
         ) as f:
             self.setStyleSheet(f.read())
 
@@ -83,3 +91,17 @@ class SIET_MainWindow(QMainWindow):
         self.FOOTER_BOX.addStretch()
 
         self.GRID.addLayout(self.FOOTER_BOX, 0, 0, 1, 1)
+
+    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
+        if event.mimeData().hasUrls():
+            event.accept()
+        else:
+            event.ignore()
+
+    def dropEvent(self, event: QDropEvent) -> None:
+        tmp =[i.toLocalFile() for i in event.mimeData().urls()][0]
+        if pathlib.Path(tmp).suffix in [".png"]:
+            self.target_image_path = tmp
+            self.statusBar().showMessage(self.target_image_path)
+        else:
+            self.statusBar().showMessage("Error")
