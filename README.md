@@ -31,7 +31,7 @@
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
-## 🧐 About <a name = "about"></a>
+## 😌 About <a name = "about"></a>
 It is a toolkit for applying effects to images.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
