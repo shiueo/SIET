@@ -7,10 +7,11 @@
 
 <div align="center">
 
-  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-  [![GitHub Issues](https://img.shields.io/github/issues/shiueo/SIET.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/shiueo/SIET.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-  [![License](https://img.shields.io/github/license/shiueo/SIET)](/LICENSE)
+<p>  <a href=""><img src="https://img.shields.io/badge/status-active-success.svg" alt="Status"></a> 
+  <a href="https://github.com/kylelobo/The-Documentation-Compendium/issues"><img src="https://img.shields.io/github/issues/shiueo/SIET.svg" alt="GitHub Issues"></a>
+  <a href="https://github.com/kylelobo/The-Documentation-Compendium/pulls"><img src="https://img.shields.io/github/issues-pr/shiueo/SIET.svg" alt="GitHub Pull Requests"></a>
+  <a href="/LICENSE"><img src="https://img.shields.io/github/license/shiueo/SIET" alt="License"></a></p>
+
 
 </div>
 
