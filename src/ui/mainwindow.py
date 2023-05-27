@@ -35,7 +35,7 @@ class SIET_MainWindow(QMainWindow):
         self.setAcceptDrops(True)
         self.setWindowIcon(QIcon(global_path.get_proj_abs_path("assets/icon.png")))
         self.statusBar().setFont(QFont(self.Pretendard_Medium, 10))
-        self.statusBar().showMessage('Ready')
+        self.statusBar().showMessage("Ready")
 
         # VARIABLES
         self.target_image_path = None
@@ -77,7 +77,7 @@ class SIET_MainWindow(QMainWindow):
 
     def initUI(self):
         with open(
-                file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
+            file=global_path.get_proj_abs_path("assets/stylesheet.txt"), mode="r"
         ) as f:
             self.setStyleSheet(f.read())
 
@@ -99,9 +99,13 @@ class SIET_MainWindow(QMainWindow):
             event.ignore()
 
     def dropEvent(self, event: QDropEvent) -> None:
-        tmp =[i.toLocalFile() for i in event.mimeData().urls()][0]
+        tmp = [i.toLocalFile() for i in event.mimeData().urls()][0]
         if pathlib.Path(tmp).suffix in [".png", ".jpg"]:
             self.target_image_path = tmp
-            self.statusBar().showMessage(f"{pathlib.Path(self.target_image_path).name} loaded.")
+            self.statusBar().showMessage(
+                f"{pathlib.Path(self.target_image_path).name} loaded."
+            )
         else:
-            self.statusBar().showMessage(f"Require image files in formats like PNG, JPEG, JPG, ... . :: {pathlib.Path(tmp).name}")
+            self.statusBar().showMessage(
+                f"Require image files in formats like PNG, JPEG, JPG, ... . :: {pathlib.Path(tmp).name}"
+            )
